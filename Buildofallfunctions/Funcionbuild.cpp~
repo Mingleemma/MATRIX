@@ -1,0 +1,373 @@
+//Emmanuel Nii-Akwei Mingle
+//June 15, 2015. 5:50PM
+//Working various matrix calculations.
+//Including sum, inverse, determinant, multiplication by a constant, multiplications of two constants, finding the values of x, y or z in a quadratic.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int matop, mattype, a[2], b[2], c[2], d[2], e[2], f[2], g[2], h[2], i[2], m, n, o;
+	float x, y, z, num, Det, DetA, DetAx, DetAy, DetAz, num1, num2, num3, num4, num5, num6, num7, num8, num9;
+	char mattypes, ans;
+	
+	do
+	{
+	cout<<"Enter the function you wish to perform with the matrix\n";
+	cout<<"1 for Transpose\n" <<"2 for summing two matrices\n";
+	cout<<"3 for subtracting two matrices\n" <<"4 for finding the determinant\n";
+	cout<<"5 for finding the values of x, y, and z\n" <<"6 for multiplying a matrix for a constant\n";
+	cout<<"7 for multiplying two matrices\n" <<"8 for finding the inverse of matrix\n";
+	
+	cin>>matop;
+	
+	if(matop==1)
+	{
+	cout<< "You have chosen the TRANSPOSE FUNCTION";
+	cout<< "Enter Matrix type\n" <<" 1 for 2*2 matrix\n" <<"2 for 3*3 matrix\n";
+	cin>> mattype;
+	
+	if(mattype==1)
+	{
+		cout<<"Matrix is 2*2 matrix\n";
+		cout<<"Enter matrix values a,b,c,d\n";
+		cin>> a[1]   >>b[1]   >>c[1]   >>d[1]  ;
+		cout<<"MatA = \n";
+		cout<<"|" <<a[1]   <<" " <<b[1]   <<"|\n";
+		cout<<"|" <<c[1]   <<" " <<d[1]   <<"|\n\n";
+		num1=a[1]  ; num2=c[1]  ; num3=b[1]  ; num4=d[1]  ;
+		cout<<"TransMatA = ";
+		cout<<"|" <<num1 <<" " <<num2 <<"|\n";
+		cout<<"|" <<num3 <<" " <<num4 <<"|\n";
+	} 
+
+	else
+	{
+		cout<<"Matrix is 3*3 matrix\n";
+		cout<<"Enter matrix values a,b,c,d,e,f,g,h,i\n";
+		cin>> a[1]   >>b[1]   >>c[1]   >>d[1]   >>e[1]   >>f[1]   >>g[1]   >>h[1]   >>i[1]  ;
+		cout<<"MatA = \n";
+		cout<<"|" <<a[1]   <<" " <<b[1]   <<" " <<c[1]   <<"|\n";
+		cout<<"|" <<d[1]   <<" " <<e[1]   <<" " <<f[1]   <<"|\n";
+		cout<<"|" <<g[1]   <<" " <<h[1]   <<" " <<i[1]   <<"|\n";
+		num1=a[1]; num2=d[1]; num3=g[1]; num4=b[1]; num5=e[1]; num6=h[1]; num7=c[1]; num8=f[1]; num9=i[1];
+		cout<<"TransMatA = \n";
+		cout<<"|" <<num1 <<" " <<num2 <<" " <<num3 <<"|\n";
+		cout<<"|" <<num4 <<" " <<num5 <<" " <<num6 <<"|\n";
+		cout<<"|" <<num7 <<" " <<num8 <<" " <<num9 <<"|\n";
+	 	}
+	}
+	
+	else if(matop==2)
+	{
+	cout<<"You have chosen the ADDITION FUNCTION\n";	
+	cout<<"Enter the Matrix type\n";
+	cout<<"1 for 2*2 Matrix\n";
+	cout<<"2 for 3*3 Matrix\n";
+	cin>>mattype;
+	
+	if(mattype==1)
+	{
+		cout<<"Matrix is a 2*2 Matrix\n";
+		cout<<"Enter values for MatA\n a1,b1,c1,d1";
+		cin>> a[1] >>b[1] >>c[1] >>d[1];
+		cout<<"MatA = \n";
+		cout<<"|" <<a[1] <<" " <<b[1] <<"|\n";
+		cout<<"|" <<c[1] <<" " <<d[1] <<"|\n\n";
+		
+		cout<<"Enter values for MatB\n a2,b2,c2,d2";
+		cin>> a[2] >>b[2] >>c[2] >>d[2];
+		cout<<"MatA = \n";
+		cout<<"|" <<a[2] <<" " <<b[2] <<"|\n";
+		cout<<"|" <<c[2] <<" " <<d[2] <<"|\n\n";
+		
+		num1=a[1]+a[2]; num2=b[1]+b[2]; num3=c[1]+c[2]; num4=d[1]+d[4];
+		cout<<"MatSum = \n";
+		cout<<"|" <<num1 <<" " <<num2 <<"|\n";
+		cout<<"|" <<num3 <<" " <<num4 <<"|\n\n";
+		
+	}
+	
+	else
+	{
+		cout<<"Matrix is a 3*3 Matrix\n";
+		cout<<"Enter values for MatA a1,b1,c1,d1,e1,f1,g1,h1i1\n";
+		cin>> a[1] >>b[1] >>c[1] >>d[1] >>e[1] >>f[1] >>g[1] >>h[1] >>i[1];
+		cout<<"MatA = \n";
+		cout<<"|" <<a[1] <<" " <<b[1] <<" " <<c[1] <<"|\n";
+		cout<<"|" <<d[1] <<" " <<e[1] <<" " <<f[1] <<"|\n";
+		cout<<"|" <<g[1] <<" " <<h[1] <<" " <<i[1] <<"|\n\n";
+		
+		cin>> a[2] >>b[2] >>c[2] >>d[2] >>e[2] >>f[2] >>g[2] >>h[2] >>i[2];
+		cout<<"MatB = a2,b2,c2,d2,e2,f2,g2,h2,i2\n";
+		cout<<"|" <<a[2] <<" " <<b[2] <<" " <<c[2] <<"|\n";
+		cout<<"|" <<d[2] <<" " <<e[2] <<" " <<f[2] <<"|\n";
+		cout<<"|" <<g[2] <<" " <<h[2] <<" " <<i[2] <<"|\n\n";
+		
+		num1=a[1]+a[2]; num2=b[1]+b[2]; num3=c[1]+c[2]; num4=d[1]+d[4]; num5=e[1]+e[2]; num6=f[1]+f[2]; num7=g[1]+g[2];
+		num8=h[1]+h[2]; num9=i[1]+i[2];
+		
+		cout<<"MatSum = \n";
+		cout<<"|" <<num1 <<" " <<num2 <<" " <<num3 <<"|\n";
+		cout<<"|" <<num4 <<" " <<num5 <<" " <<num6 <<"|\n";
+		cout<<"|" <<num7 <<" " <<num8 <<" " <<num9 <<"|\n\n";
+	}
+	}
+	else if(matop==3)
+	{
+	cout<<"You have chosen the SUBTRACTION FUNCTION\n";
+	cout<<"Enter the Matrix type\n";
+	cout<<"1 for 2*2 Matrix\n";
+	cout<<"2 for 3*3 Matrix\n";
+	cin>>mattype;
+	
+	if(mattype==1)
+	{
+		cout<<"Matrix is a 2*2 Matrix\n";
+		cout<<"Enter values for MatA\n a1,b1,c1,d1";
+		cin>> a[1] >>b[1] >>c[1] >>d[1];
+		cout<<"MatA = \n";
+		cout<<"|" <<a[1] <<" " <<b[1] <<"|\n";
+		cout<<"|" <<c[1] <<" " <<d[1] <<"|\n\n";
+		
+		cout<<"Enter values for MatB\n a2,b2,c2,d2";
+		cin>> a[2] >>b[2] >>c[2] >>d[2];
+		cout<<"MatA = \n";
+		cout<<"|" <<a[2] <<" " <<b[2] <<"|\n";
+		cout<<"|" <<c[2] <<" " <<d[2] <<"|\n\n";
+		
+		num1=a[1]-a[2]; num2=b[1]-b[2]; num3=c[1]-c[2]; num4=d[1]-d[4];
+		cout<<"MatSum = \n";
+		cout<<"|" <<num1 <<" " <<num2 <<"|\n";
+		cout<<"|" <<num3 <<" " <<num4 <<"|\n\n";
+		
+	}
+	
+	else
+	{
+		cout<<"Matrix is a 3*3 Matrix\n";
+		cout<<"Enter values for MatA a1,b1,c1,d1,e1,f1,g1,h1i1\n";
+		cin>> a[1] >>b[1] >>c[1] >>d[1] >>e[1] >>f[1] >>g[1] >>h[1] >>i[1];
+		cout<<"MatA = \n";
+		cout<<"|" <<a[1] <<" " <<b[1] <<" " <<c[1] <<"|\n";
+		cout<<"|" <<d[1] <<" " <<e[1] <<" " <<f[1] <<"|\n";
+		cout<<"|" <<g[1] <<" " <<h[1] <<" " <<i[1] <<"|\n\n";
+		
+		cin>> a[2] >>b[2] >>c[2] >>d[2] >>e[2] >>f[2] >>g[2] >>h[2] >>i[2];
+		cout<<"MatB = a2,b2,c2,d2,e2,f2,g2,h2,i2\n";
+		cout<<"|" <<a[2] <<" " <<b[2] <<" " <<c[2] <<"|\n";
+		cout<<"|" <<d[2] <<" " <<e[2] <<" " <<f[2] <<"|\n";
+		cout<<"|" <<g[2] <<" " <<h[2] <<" " <<i[2] <<"|\n\n";
+		
+		num1=a[1]-a[2]; num2=b[1]-b[2]; num3=c[1]-c[2]; num4=d[1]-d[4]; num5=e[1]-e[2]; num6=f[1]-f[2]; num7=g[1]-g[2];
+		num8=h[1]-h[2]; num9=i[1]-i[2];
+		
+		cout<<"MatSum = \n";
+		cout<<"|" <<num1 <<" " <<num2 <<" " <<num3 <<"|\n";
+		cout<<"|" <<num4 <<" " <<num5 <<" " <<num6 <<"|\n";
+		cout<<"|" <<num7 <<" " <<num8 <<" " <<num9 <<"|\n\n";
+	}
+	}
+	
+	else if(matop==4)
+	{
+	cout<<"You have chosen the DETERMINANT FUNCTION\n";
+	cout<<"Enter Matrix type\n";
+	cout<<"1 for 2*2 matrix\n";
+	cout<<"2 for 3*3 matrix\n";
+	cin>>mattype;
+	if(mattype==1)
+	{
+	cout<<"You are working with a 2*2 matrix\n" <<"Enter values of matrix a,b,c,d\n";
+	cin>>a[1] >>b[1] >>c[1] >>d[1];
+	cout<<"MatA = \n" <<"|" <<a[1] <<" " <<b[1] <<"|\n" <<"|" <<c[1] <<" " <<d[1] <<"|\n\n";
+	DetA=(a[1]*d[1])-(c[1]*b[1]);
+	cout<<"DetA = " <<DetA;
+	}
+	
+	else
+	{
+	cout<<"You are working with a 3*3 matrix\n" <<"Enter values of matrix a,b,c,d,e,f,g,h,i\n";
+	cin>>a[1] >>b[1] >>c[1] >>d[1] >>e[1] >>f[1] >>g[1] >>h[1] >>i[1];
+	cout<<"MatA = \n" <<"|" <<a[1] <<" " <<b[1] <<" " <<c[1] <<"|\n" <<"|" <<d[1] <<" " <<e[1] <<" " <<f[1] <<"|\n";
+	cout<<"|" <<g[1] <<" " <<h[1] <<" " <<i[1] <<"|\n\n";
+	DetA=(a[1]*(e[1]*i[1]-h[1]*f[1])-b[1]*(d[1]*i[1]-g[1]*f[1])+c[1]*(d[1]*h[1]-g[1]*e[1]));
+	cout<<"DetA = " <<DetA;
+	}
+	}
+	
+	else if(matop==5)
+	{
+	cout<<"You have chosen the X, Y, Z FUNCTION\n";	
+	cout<<"Enter the Matrix type\n" <<"1 for 2*2 matrix\n" <<"2 for 3*3 matrix\n";
+	cin>>mattype;
+	
+	if(mattype==1)
+	{
+		cout<<"You are working with a 2*2 matrix\n";
+		cout<<"Enter values for matrix a,b,c,d,m,n\n\n";
+		cin>> a[1] >>b[1] >>c[1] >>d[1] >>m >>n;
+		cout<<"Concactenated form of matrix is given below\n";
+		cout<<"|" <<a[1] <<" " <<b[1] <<" " <<"|" <<" " <<m <<"|\n";
+		cout<<"|" <<c[1] <<" " <<d[1] <<" " <<"|" <<" " <<n <<"|\n\n";
+		DetA=(a[1]*d[1])-(c[1]*b[1]); DetAx=(m*d[1])-(b[1]*n);  DetAy=(a[1]*n)-(n*c[1]);
+		cout<<"DetA = " <<DetA <<endl;
+		cout<<"DetA|x =" <<DetAx <<endl;
+		cout<<"DetA|y =" <<DetAy <<endl;
+		x=DetAx/DetA; y=DetAy/DetA;
+		cout<<"x = " <<x <<endl;
+		cout<<"y = " <<y <<endl;
+	}
+	
+	else
+	{
+		cout<<"You are working with a 3*3 matrix\n";
+		cout<<"Enter the values for matrix a,b,c,d,e,f,g,h,i,m,n,o\n";
+		cin>>a[1] >>b[1] >>c[1] >>d[1] >>e[1] >>f[1] >>g[1] >>h[1] >>i[1] >>m >>n >>o;
+		cout<<"Concactenated form of matrix is given below\n";
+		cout<<"|" <<a[1] <<" " <<b[1] <<" " <<c[1] <<" "<<"|" <<" " <<m <<"|\n";
+		cout<<"|" <<d[1] <<" " <<e[1] <<" " <<f[1] <<" "<<"|" <<" " <<n <<"|\n";
+		cout<<"|" <<g[1] <<" " <<h[1] <<" " <<i[1] <<" "<<"|" <<" " <<o <<"|\n";
+		DetA=(a[1]*(e[1]*i[1]-h[1]*f[1])-b[1]*(d[1]*i[1]-g[1]*f[1])+c[1]*(d[1]*h[1]-g[1]*e[1]));
+		DetAx= (m*((e[1]*i[1])-(h[1]*f[1]))-b[1]*((n*i[1])-(o*f[1]))+c[1]*(n*h[1]-o*e[1]));
+		DetAy= (a[1]*((n*i[1])-(h[1]*f[1]))-m*((d[1]*i[1])-(g[1]*f[1]))+c[1]*((d[1]*o)-(g[1]*n)));
+		DetAz= (a[1]*((e[1]*o)-(h[1]*n))-b[1]*((d[1]*o)-(g[1]*n))+m*((d[1]*h[1])-(g[1]*e[1])));
+		cout<<"DetA = " <<DetA <<endl;
+		cout<<"DetA|x =" <<DetAx <<endl;
+		cout<<"DetA|y =" <<DetAy <<endl;
+		cout<<"DetA|z =" <<DetAz <<endl;
+		
+		x=DetAx/ DetA;
+		y=DetAy/ DetA;
+		z=DetAz/ DetA;
+		
+		cout<<"x = " <<x <<endl;
+		cout<<"y = " <<y <<endl;
+		cout<<"z = " <<z <<endl;
+	}
+	}
+	
+	else if(matop==6)
+	{
+	cout<<"You have chosen MULTIPLY BY A CONSTANT FUNCTION\n";
+	cout<<"Enter the Matrix type\n";
+	cout<<"1 for 2*2 matrix\n" <<"2 for 3*3 matrix\n";
+	cin>> mattype;
+	
+	if(mattype==1)
+	{
+		cout<<"You are using a 2*2 matrix\n";
+		cout<<"Enter the value of the constant\n";
+		cin>> num;
+		cout<<"Constant = " <<num <<endl;
+		cout<<"Enter the values of matrix a,b,c,d\n";
+		cin>>a[1] >>b[1] >>c[1] >>d[1];
+		cout<<"MatA = \n" <<"|" <<a[1] <<" " <<b[1] <<"|\n" <<"|" <<c[1] <<" " <<d[1] <<"|\n";
+		a[1]=num*a[1]; b[1]=num*b[1]; c[1]=num*c[1]; d[1]=num*d[1];
+		cout<<"Const*MatA = \n" <<"|" <<a[1] <<" " <<b[1] <<"|\n" <<"|" <<c[1] <<" " <<d[1] <<"|\n";
+	}
+	
+	else
+	{
+		cout<<"You are using a 3*3 matrix\n";
+		cout<<"Enter the value of the constant\n";
+		cin>>num;
+		cout<<"Constant = " <<num <<endl;
+		cout<<"Enter the values of matrix a,b,c,d,e,f,g,h,i\n";
+		cin>>a[1] >>b[1] >>c[1] >>d[1] >>e[1] >>f[1] >>g[1] >>h[1] >>i[1];
+		cout<<"MatA = \n" <<"|" <<a[1] <<" " <<b[1] <<" " <<c[1] <<"|\n";
+		cout<<"|" <<d[1] <<" " <<e[1] <<" " <<f[1] <<"|\n" <<"|" <<g[1] <<" " <<h[1] <<" " <<i[1] <<"|\n";
+		a[1]=num*a[1]; b[1]=num*b[1]; c[1]=num*c[1]; d[1]=num*d[1]; e[1]=num*e[1]; f[1]=num*f[1]; 
+		g[1]=num*g[1]; h[1]=num*h[1]; i[1]=num*i[1];
+		cout<<"Const*MatA = \n" <<"|" <<a[1] <<" " <<b[1] <<" " <<c[1] <<"|\n";
+		cout<<"|" <<d[1] <<" " <<e[1] <<" " <<f[1] <<"|\n" <<"|" <<g[1] <<" " <<h[1] <<" " <<i[1] <<"|\n";
+	}
+	}
+	
+	else if(matop==7)
+	{
+	cout<<"You have chosen MULTIPLYING TO MATRICES FUNCTION\n";
+	cout<<"Enter Matrix type\n";
+	cout<<"1 for 2*2 matrix\n" <<"2 for 3*3 matrix\n";
+	cin>>mattype;
+	
+	if(mattype==1)
+	{
+		cout<<"You are using a 2*2 matrix\n";
+		cout<<"Enter values for MatA a1,b1,c1,d1\n";
+		cin>>a[1] >>b[1] >>c[1] >>d[1];
+		cout<<"Enter values for MatB a2,b2,c2,d2\n";
+		cin>>a[2] >>b[2] >>c[2] >>d[2];
+		cout<<"MatA = \n";
+		cout<<"|" <<a[1] <<" " <<b[1] <<"|\n" <<"|" <<c[1] <<" " <<d[1] <<"|\n\n";
+		cout<<"MatB = \n";
+		cout<<"|" <<a[2] <<" " <<b[2] <<"|\n" <<"|" <<c[2] <<" " <<d[2] <<"|\n\n";
+	    
+		num1=a[1]*a[2]+b[1]*c[2]; num2=a[1]*b[2]+b[1]*d[2]; 
+		num3=c[1]*a[2]+d[1]*c[2]; num4=c[1]*b[2]+d[1]*d[2];
+		
+		cout<<"MatA*MatB = \n";
+		cout<<"|" <<num1 <<" " <<num2 <<"|\n" <<"|" <<num3 <<" " <<num4 <<"|\n\n";
+	}
+	
+	else
+	{
+		cout<<"You are using a 3*3 matrix\n";
+		cout<<"Enter values for MatA a1,b1,c1,d1,e1,f1,g1,h1,i1\n";
+		cin>>a[1] >>b[1] >>c[1] >>d[1] >>e[1] >>f[1] >>g[1] >>h[1] >>i[1];
+		cout<<"Enter values for MatB a2,b2,c2,d2,e2,f2,g2,h2,i2\n";
+		cin>>a[2] >>b[2] >>c[2] >>d[2] >>e[2] >>f[2] >>g[2] >>h[2] >>i[2];
+		cout<<"MatA = \n";
+		cout<<"|" <<a[1] <<" " <<b[1] <<" " <<c[1] <<"|\n";
+		cout<<"|" <<d[1] <<" " <<e[1] <<" " <<f[1] <<"|\n";
+		cout<<"|" <<g[1] <<" " <<h[1] <<" " <<i[1] <<"|\n\n";
+		
+		cout<<"MatB =\n";
+		cout<<"|" <<a[2] <<" " <<b[2] <<" " <<c[2] <<"|\n"; 
+		cout<<"|" <<d[2] <<" " <<e[2] <<" " <<f[2] <<"|\n";
+		cout<<"|" <<g[2] <<" " <<h[2] <<" " <<i[2] <<"|\n\n";
+		
+		num1=a[1]*a[2]+b[1]*d[2]+c[1]*g[2]; num2=a[1]*b[2]+b[1]*e[2]+c[1]*h[2];
+		num3=a[1]*c[2]+b[1]*f[2]+c[1]*i[2]; num4=d[1]*a[2]+e[1]*d[2]+f[1]*g[2];
+		num5=d[1]*b[2]+e[1]*e[2]+f[1]*h[2]; num6=d[1]*c[2]+e[1]*f[2]+f[1]*i[2];
+		num7=g[1]*a[2]+h[1]*d[2]+i[1]*g[2]; num8=g[1]*b[2]+h[1]*e[2]+i[1]*h[2];
+		num9=g[1]*c[2]+h[1]*f[2]+i[1]*i[2];
+		
+		cout<<"MatA*MatB = \n";
+		cout<<"|" <<num1 <<" " <<num2 <<" " <<num3 <<"|\n"; 
+		cout<<"|" <<num4 <<" " <<num5 <<" " <<num6 <<"|\n";
+		cout<<"|" <<num7 <<" " <<num8 <<" " <<num9 <<"|\n\n";
+	}
+	}
+	
+	else if(matop==8)
+	{
+	cout<<"You have chosen an INVERSE FUNCTION";
+	cout<<"Are you using a 2*2 Matrix(Yes/No)\n";
+	cin>>mattype;
+	
+	if(mattypes=='y')
+	{
+	cout<<"Enter values of matrix a,b,c,d\n";
+	cin>>a[1] >>b[1] >>c[1] >>d[1];
+	cout<<"MatA = \n" <<"|" <<a[1] <<" " <<b[1] <<"|\n" <<"|" <<c[1] <<" " <<d[1] <<"|\n\n";
+	Det=a[1]*d[1]-b[1]*c[1];
+	cout<<"Determinant = " <<Det <<endl;
+	num1=d[1]/Det; num2=-b[1]/Det; num3=-c[1]/Det; num4=a[1]/Det;
+	
+	cout<<"InvrsMatA = \n" <<"|" <<num1 <<" " <<num2 <<"|\n" <<"|" <<num3 <<" " <<num4 <<"|\n\n";
+	}
+	
+	else if(mattypes=='n')
+	{
+		cout<<"Error";
+	}
+	}
+	cout<<"Would you like to run another function";
+	cin>>ans;
+}
+
+while(ans=='y');
+	
+return 0;
+}
